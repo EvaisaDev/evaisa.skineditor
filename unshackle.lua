@@ -19,7 +19,7 @@ else
 	smallfolk = dofile("mods/evaisa.skineditor/lib/smallfolk.lua")
 	bitser = require("bitser")
 	delay = dofile("mods/evaisa.skineditor/files/scripts/utilities/delay.lua")
-	popup = dofile("mods/evaisa.arena/lib/popup.lua")
+	popup = dofile("mods/evaisa.skineditor/files/scripts/popup.lua")
 
 	dofile("mods/evaisa.skineditor/files/scripts/gui_utils.lua")
 	dofile("mods/evaisa.skineditor/content/data.lua")

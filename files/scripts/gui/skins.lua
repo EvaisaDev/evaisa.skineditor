@@ -414,7 +414,7 @@ skins.init = function()
 		
 				GuiLayoutBeginLayer(self.gui)
 				GuiLayoutBeginHorizontal(self.gui, 0, 0, true, 0, 0)
-				if CustomButton(self.gui, "sagsadshds", x + (main_container_width - 10), bar_y + 1, z_index - 600, 1, "mods/evaisa.mp/files/gfx/ui/minimize.png", 0, 0, 0, 0.5) then
+				if CustomButton(self.gui, "sagsadshds", x + (main_container_width - 10), bar_y + 1, z_index - 600, 1, "mods/evaisa.skineditor/files/gfx/ui/minimize.png", 0, 0, 0, 0.5) then
 					self.editor_open = false
 					GameRemoveFlagRun("wardrobe_open")
 				end
@@ -423,7 +423,7 @@ skins.init = function()
 		
 				GuiZSetForNextWidget(self.gui, z_index)
 				GuiOptionsAddForNextWidget(self.gui, GUI_OPTION.IsExtraDraggable)
-				GuiEndAutoBoxNinePiece(self.gui, 0, main_container_width + 2, 8, false, 0, "mods/evaisa.mp/files/gfx/ui/9piece_window_bar.png", "mods/evaisa.mp/files/gfx/ui/9piece_window_bar.png")
+				GuiEndAutoBoxNinePiece(self.gui, 0, main_container_width + 2, 8, false, 0, "mods/evaisa.skineditor/files/gfx/ui/9piece_window_bar.png", "mods/evaisa.skineditor/files/gfx/ui/9piece_window_bar.png")
 		
 				-- Cache calculations
 				local mouse_x, mouse_y = input:GetUIMousePos(self.gui)
@@ -594,7 +594,7 @@ skins.init = function()
 				local wallet_title = GameTextGetTranslatedOrNot("$arena_cosmetics_wallet")
 				GuiText(self.gui, x + main_container_width + 8, bar_y, " " .. wallet_title)
 				GuiZSetForNextWidget(self.gui, z_index)
-				GuiEndAutoBoxNinePiece(self.gui, 0, 100, 8, false, 0, "mods/evaisa.mp/files/gfx/ui/9piece_window_bar.png", "mods/evaisa.mp/files/gfx/ui/9piece_window_bar.png")
+				GuiEndAutoBoxNinePiece(self.gui, 0, 100, 8, false, 0, "mods/evaisa.skineditor/files/gfx/ui/9piece_window_bar.png", "mods/evaisa.skineditor/files/gfx/ui/9piece_window_bar.png")
 		
 				GuiZSetForNextWidget(self.gui, z_index)
 				GuiBeginScrollContainer(self.gui, new_id(), x + main_container_width + 8, y, 98, 10, false, 1, 1)
@@ -708,7 +708,7 @@ skins.init = function()
 
             GuiLayoutBeginLayer( self.gui )
             GuiLayoutBeginHorizontal( self.gui, 0, 0, true, 0, 0)
-            if(CustomButton(self.gui, "sagsadshds", x + (w - 10), bar_y + 1, z_index - 600, 1, "mods/evaisa.mp/files/gfx/ui/minimize.png", 0, 0, 0, 0.5))then
+            if(CustomButton(self.gui, "sagsadshds", x + (w - 10), bar_y + 1, z_index - 600, 1, "mods/evaisa.skineditor/files/gfx/ui/minimize.png", 0, 0, 0, 0.5))then
                 self.editor_open = false
                 GameRemoveFlagRun("wardrobe_open")
             end
@@ -718,7 +718,7 @@ skins.init = function()
 
             GuiZSetForNextWidget( self.gui, z_index )
             GuiOptionsAddForNextWidget(self.gui, GUI_OPTION.IsExtraDraggable)
-            GuiEndAutoBoxNinePiece( self.gui, 0, w, 8, false, 0, "mods/evaisa.mp/files/gfx/ui/9piece_window_bar.png", "mods/evaisa.mp/files/gfx/ui/9piece_window_bar.png")
+            GuiEndAutoBoxNinePiece( self.gui, 0, w, 8, false, 0, "mods/evaisa.skineditor/files/gfx/ui/9piece_window_bar.png", "mods/evaisa.skineditor/files/gfx/ui/9piece_window_bar.png")
 
             -- color bar
 
@@ -735,7 +735,7 @@ skins.init = function()
 
             GuiZSetForNextWidget( self.gui, z_index )
             GuiOptionsAddForNextWidget(self.gui, GUI_OPTION.IsExtraDraggable)
-            GuiEndAutoBoxNinePiece( self.gui, 0, w, 8, false, 0, "mods/evaisa.mp/files/gfx/ui/9piece_window_bar.png", "mods/evaisa.mp/files/gfx/ui/9piece_window_bar.png")
+            GuiEndAutoBoxNinePiece( self.gui, 0, w, 8, false, 0, "mods/evaisa.skineditor/files/gfx/ui/9piece_window_bar.png", "mods/evaisa.skineditor/files/gfx/ui/9piece_window_bar.png")
         end
 
         -- saved skins bar
@@ -752,7 +752,7 @@ skins.init = function()
 
         GuiZSetForNextWidget( self.gui, z_index )
         GuiOptionsAddForNextWidget(self.gui, GUI_OPTION.IsExtraDraggable)
-        GuiEndAutoBoxNinePiece( self.gui, 0, w, 8, false, 0, "mods/evaisa.mp/files/gfx/ui/9piece_window_bar.png", "mods/evaisa.mp/files/gfx/ui/9piece_window_bar.png")
+        GuiEndAutoBoxNinePiece( self.gui, 0, w, 8, false, 0, "mods/evaisa.skineditor/files/gfx/ui/9piece_window_bar.png", "mods/evaisa.skineditor/files/gfx/ui/9piece_window_bar.png")
 
 
         -- draw saved skins container
@@ -764,7 +764,7 @@ skins.init = function()
         GuiLayoutBeginVertical(self.gui, 0, 0, true, 2, 2)
 
         if(GuiButton(self.gui, new_id(), 0, 0, GameTextGetTranslatedOrNot("$arena_skins_open_folder")))then
-            os.execute("start \"\" \"data\\evaisa.skineditor\\skins\"")
+            os.execute("start \"\" \"data\\evaisa.arena\\skins\"")
         end
         GuiTooltip(self.gui, GameTextGetTranslatedOrNot("$arena_skins_open_folder"), GameTextGetTranslatedOrNot("$arena_skins_open_folder_description"))
 

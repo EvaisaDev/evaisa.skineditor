@@ -239,7 +239,7 @@ function DrawWindow(gui, z_index, x, y, w, h, title, centered, callback, close_c
 	if(close_callback ~= nil and not no_close_button)then
 		GuiLayoutBeginLayer( gui )
 		GuiLayoutBeginHorizontal( gui, 0, 0, true, 0, 0)
-		if(CustomButton(gui, "sagsadshds", x + (last_render_width - 10), bar_y + 1, z_index - 600, 1, "mods/evaisa.mp/files/gfx/ui/minimize.png", 0, 0, 0, 0.5))then
+		if(CustomButton(gui, "sagsadshds", x + (last_render_width - 10), bar_y + 1, z_index - 600, 1, "mods/evaisa.skineditor/files/gfx/ui/minimize.png", 0, 0, 0, 0.5))then
 			close_callback()
 		end
 		GuiLayoutEnd( gui )
@@ -248,7 +248,7 @@ function DrawWindow(gui, z_index, x, y, w, h, title, centered, callback, close_c
 
 	GuiZSetForNextWidget( gui, z_index )
 	GuiOptionsAddForNextWidget(gui, GUI_OPTION.IsExtraDraggable)
-	GuiEndAutoBoxNinePiece( gui, 0, last_render_width, 8, false, 0, "mods/evaisa.mp/files/gfx/ui/9piece_window_bar.png", "mods/evaisa.mp/files/gfx/ui/9piece_window_bar.png")
+	GuiEndAutoBoxNinePiece( gui, 0, last_render_width, 8, false, 0, "mods/evaisa.skineditor/files/gfx/ui/9piece_window_bar.png", "mods/evaisa.skineditor/files/gfx/ui/9piece_window_bar.png")
 	
 	local clicked, right_clicked, hovered, bar_x, bar_y, bar_w, bar_h = GuiGetPreviousWidgetInfo( gui )
 
@@ -442,7 +442,7 @@ function DrawWindow(gui, z_index, x, y, w, h, title, centered, callback, close_c
 	if(close_callback ~= nil and not no_close_button)then
 		GuiLayoutBeginLayer( gui )
 		GuiLayoutBeginHorizontal( gui, 0, 0, true, 0, 0)
-		if(CustomButton(gui, "sagsadshds", x + (w - 10), bar_y + 1, z_index - 600, 1, "mods/evaisa.mp/files/gfx/ui/minimize.png", 0, 0, 0, 0.5))then
+		if(CustomButton(gui, "sagsadshds", x + (w - 10), bar_y + 1, z_index - 600, 1, "mods/evaisa.skineditor/files/gfx/ui/minimize.png", 0, 0, 0, 0.5))then
 			close_callback()
 		end
 		GuiLayoutEnd( gui )
@@ -451,7 +451,7 @@ function DrawWindow(gui, z_index, x, y, w, h, title, centered, callback, close_c
 
 	GuiZSetForNextWidget( gui, z_index )
 	GuiOptionsAddForNextWidget(gui, GUI_OPTION.IsExtraDraggable)
-	GuiEndAutoBoxNinePiece( gui, 0, w, 8, false, 0, "mods/evaisa.mp/files/gfx/ui/9piece_window_bar.png", "mods/evaisa.mp/files/gfx/ui/9piece_window_bar.png")
+	GuiEndAutoBoxNinePiece( gui, 0, w, 8, false, 0, "mods/evaisa.skineditor/files/gfx/ui/9piece_window_bar.png", "mods/evaisa.skineditor/files/gfx/ui/9piece_window_bar.png")
 	
 	local clicked, right_clicked, hovered, bar_x, bar_y, bar_w, bar_h = GuiGetPreviousWidgetInfo( gui )
 

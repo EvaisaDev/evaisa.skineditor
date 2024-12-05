@@ -21,13 +21,13 @@ end
 
 
 function loadImage(file)
-    local gamemode_path = GetModFilePath("evaisa.skineditor", "")
+    local gamemode_path = GetModFilePath("evaisa.skineditor", "3375938501")
+	
 
     if(gamemode_path)then
-        -- replace mods/evaisa.skineditor from start of file path with gamemode path
+        -- replace mods/evaisa.arena from start of file path with gamemode path
         file = file:gsub("mods/evaisa.skineditor", gamemode_path)
     end
-
 
     local f, err = fs.open(file)
 

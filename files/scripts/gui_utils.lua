@@ -461,12 +461,6 @@ function DrawWindow(gui, z_index, x, y, w, h, title, centered, callback, close_c
 
 	local disable_scroll = true
 
-	if (input:WasKeyPressed("f1")) then
-        global_scroll_toggle = global_scroll_toggle or false
-		global_scroll_toggle = not global_scroll_toggle 
-
-	end
-
 	
 	-- only do this if we are the upmost window hovered
 	-- check old_window_stack for this

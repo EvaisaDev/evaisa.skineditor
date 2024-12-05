@@ -10,9 +10,9 @@ end
 
 -- check if VERSION_UNSHACKLE is over or equal to 2.6.0
 local major, minor, patch = parse_version_string(VERSION_UNSHACKLE)
-if major < 2 or (major == 2 and minor < 6) then
+if major < 2 or (major == 2 and minor < 6) or (major == 2 and minor == 6 and patch < 1) then
 	function OnWorldPreUpdate()
-		GamePrint("Unshackle version is too old, please update to at least 2.6.0")
+		GamePrint("Unshackle version is too old, please update to at least 2.6.1")
 	end
 else
 

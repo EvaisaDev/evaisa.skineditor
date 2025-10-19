@@ -53,7 +53,18 @@ skins.init = function()
         end
     end
 
-
+    local uv_maps_folder = "data/generated/sprite_uv_maps/"
+    fs.mkdir(uv_maps_folder, true)
+    for file in fs.dir(uv_maps_folder)do
+        if not file then break end
+        if file ~= "." and file ~= ".." then
+            if file:sub(1, 23) == "data.evaisa.arena.cache" then
+                local file_path = uv_maps_folder..file
+                print("Removing: "..file_path)
+                fs.remove(file_path)
+            end
+        end
+    end
 
     fs.mkdir(skins_folder, true)
 
@@ -1238,6 +1249,10 @@ skins.init = function()
 			local old_skin_path_arm = self.last_player_skins["self"].arm_path
 			fs.remove(old_skin_path_arm)
 	
+            local old_uv_path = self.last_player_skins["self"].uv_map_path
+            if old_uv_path then
+                fs.remove(old_uv_path)
+            end
         end
 
         print("Applying skin to self")
@@ -1271,7 +1286,22 @@ skins.init = function()
 
 		local texture_file = string.format(get_content("mods/evaisa.skineditor/files/gfx/skins/player.xml"), temp_path)
 		local texture_file_name = "data/evaisa.arena/cache/skin_self_"..file_name..".xml"
-		set_content(texture_file_name, texture_file)
+        set_content(texture_file_name, texture_file)
+
+		local uv_orig = "mods/evaisa.skineditor/files/gfx/skins/data.enemies_gfx.player.png"
+		-- copy the uv map to data/generated/sprite_uv_maps/(texture_file_name with slashes replaced with dots)
+        fs.mkdir("data/generated/sprite_uv_maps/", true)
+        local uv_target = "data/generated/sprite_uv_maps/" .. temp_path:gsub("/", ".")
+        local src = io.open(uv_orig, "rb")
+        if src then
+            local data = src:read("*all")
+            src:close()
+            local dst = io.open(uv_target, "wb")
+            if dst then
+                dst:write(data)
+                dst:close()
+            end
+        end
 
 		local texture_file_arm = string.format(get_content("mods/evaisa.skineditor/files/gfx/skins/player_arm.xml"), arm_path)
 		local texture_file_name_arm = "data/evaisa.arena/cache/skin_arm_self_"..file_name..".xml"
@@ -1306,11 +1336,12 @@ skins.init = function()
 
 		
 
-		self.last_player_skins["self"] = {path = temp_path, xml_path = texture_file_name, arm_path = arm_path, arm_xml_path = texture_file_name_arm, cape = cape, cape_edge = cape_edge}
+		self.last_player_skins["self"] = {path = temp_path, xml_path = texture_file_name, arm_path = arm_path, arm_xml_path = texture_file_name_arm, cape = cape, cape_edge = cape_edge, uv_map_path = uv_target}
 
    
 
     end
+
 
     return self
 end

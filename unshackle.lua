@@ -10,9 +10,9 @@ end
 
 -- check if VERSION_UNSHACKLE is over or equal to 2.6.0
 local major, minor, patch = parse_version_string(VERSION_UNSHACKLE)
-if major < 2 or (major == 2 and minor < 6) or (major == 2 and minor == 6 and patch < 1) then
+if major < 2 or (major == 2 and minor < 6) or (major == 2 and minor == 6 and patch < 2) then
 	function OnWorldPreUpdate()
-		GamePrint("Unshackle version is too old, please update to at least 2.6.1")
+		GamePrint("Unshackle version is too old, please update to at least 2.6.2b")
 	end
 else
 
@@ -96,12 +96,7 @@ else
 		if(skin_system)then
 			skin_system.load()
 
-			if(not GameHasFlagRun("wardrobe_spawned"))then
-				GameAddFlagRun("wardrobe_spawned")
-				local x, y = EntityGetTransform(player_entity)
-				local floor_hit, floor_x, floor_y = RaytracePlatforms(x, y, x, y + 1000)
-				EntityLoad("mods/evaisa.skineditor/files/entities/wardrobe.xml", floor_x, floor_y)
-			end
+			print("player spawned")
 
 		end
 	end
@@ -115,6 +110,27 @@ else
 				popup.update()
 			end
 			delay.update()
+
+
+			if(not GameHasFlagRun("wardrobe_spawned"))then
+
+				local player_entities = EntityGetWithTag("player_unit")
+				if(player_entities == nil or #player_entities < 0)then
+					return
+				end
+				local player_entity = player_entities[1]
+
+				local x, y = EntityGetTransform(player_entity)
+
+				if(y)then
+					local floor_hit, floor_x, floor_y = RaytracePlatforms(x, y, x, y + 100)
+					if(floor_hit)then
+						print("wardrobe spawned")
+						GameAddFlagRun("wardrobe_spawned")
+						EntityLoad("mods/evaisa.skineditor/files/entities/wardrobe.xml", floor_x, floor_y)
+					end
+				end
+			end
 		end
 	end
 end
